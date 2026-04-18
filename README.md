@@ -1,10 +1,10 @@
 <div align="center">
 
-# vibe-share
+# vibe-share.skill
 
 ### 把你刚做完的项目，自动写成小红书 / B 站 / 抖音的分享帖
 
-一个 [Claude Code](https://claude.com/claude-code) 技能 · 给个人开发者 · 中文社媒发布包生成器
+一个 [Claude Code](https://claude.com/claude-code) skill · 给个人开发者 · 中文社媒发布包生成器
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-技能-blueviolet)](https://claude.com/claude-code)
@@ -22,7 +22,7 @@
 ✓ 小红书 / B 站 / 抖音 **各 3 个标题候选**（文学钩子版 + 可检索关键词版 + 混合版）<br>
 ✓ 每平台**逐句配音稿**（时间码 · 画面 · 念白 · 语气）<br>
 ✓ **封面怎么构图** · 用作品哪一帧 · 字写什么放哪<br>
-✓ **录视频要打什么字**（具体那 7 个字，不是"打一段"）<br>
+✓ **录视频要打什么字**（具体到哪几个字，不是"打一段"）<br>
 ✓ 灵感来自电影？**精确到秒**的引用方案 + 字幕标注 + 版权建议
 
 <br>
