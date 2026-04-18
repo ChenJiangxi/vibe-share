@@ -1,142 +1,251 @@
+<div align="center">
+
 # vibe-share
 
-> 把刚做完的 vibe coding 项目，转成一份能直接发小红书 / B 站 / 抖音的发布包。  
-> 不是营销话术，是**创作者分享**。
+> *不是营销话术，是创作者分享。*
 
-这是一个 [Claude Code](https://claude.com/claude-code) skill。安装后，在你刚做完的项目目录里说一句「帮我准备发布内容」或输入 `/vibe-share`，Claude 会自扒你的项目（README、git log、源码、设计文档），然后在项目根目录写出一份完整的 `SHARE.md`。
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Claude Code](https://img.shields.io/badge/Claude%20Code-Skill-blueviolet)](https://claude.com/claude-code)
+[![For](https://img.shields.io/badge/For-小红书%20%7C%20B站%20%7C%20抖音-ff69b4)](#)
 
----
+<br>
 
-## 它给你什么
+你做完了一个挺好的东西。<br>
+标题想不出来，开场不知道怎么讲。<br>
+找 AI 帮你写——它张口就是**"大家好今天给大家分享"**。
 
-- **三个候选开场钩子** —— 有画面、有具体场景、有未完成感。不是"大家好今天给大家分享"
-- **演讲思路** —— 录视频时对着讲就行的大纲
-- **完整视频配音稿** —— 抖音 / 小红书 / B 站 三个版本，逐句带**时间码 / 画面 / 念白 / 语气提示**
-- **电影 / 作品引用方案** —— 如果你的灵感有具体出处（比如某部电影的某一场戏），给你具体到**哪几秒可以剪进去、插在哪句配音之后、版权怎么处理、字幕怎么标**
-- **平台差异化文案** —— 小红书 / B 站 / 抖音 各自定制的标题、正文、hashtag，不是一套文案贴三遍
-- **封面设计** —— 三个平台各自的完整构图：用哪一帧当底、字写什么、字叠加在哪个位置、色调怎么搭
-- **拍摄前设置** —— 浏览器配置 / 分辨率帧率 / 录屏软件推荐 / 作品内参数建议值（例如滑块调到多少最上镜）
-- **Demo 录制清单** —— 每一镜具体**录什么画面、打什么字、录几秒、录几 take**，不是"打一段字"这种抽象指令
-- **剪辑节奏** —— 分平台的秒数级时间轴，照着时间码剪即可
+<br>
 
----
+vibe-share 做的就是这一步：<br>
+**它扒你的项目，像创作者一样讲出来。**
 
-## 为什么做这个
+<br>
 
-做 vibe coding 项目最让人犯难的不是写代码，是做完之后要发社媒——要想标题、想开场、想演讲思路、想每个平台的差异、想封面写什么、想录视频时打什么字。常用的 AI 工具一张口全是营销八股，生成出来的东西一眼就知道是 AI 写的。
+[为什么](#为什么) · [产出什么](#产出什么) · [安装](#安装) · [怎么用](#怎么用) · [示范](#示范) · [和普通-ai-的差别](#和普通-ai-写的差别) · [设计理念](#设计理念)
 
-这个 skill 强制自己走**创作者分享**的路子，不是**产品推广**的路子。内置的写作红线包括：
-
-- 禁止 CTA（"你会怎么做？""快来试试""欢迎留言"）
-- 禁止营销句式（"让 xxx"、"一键 xxx"、"带你 xxx"）
-- 禁止标题党模板（【】xxx🔥、"绝了""震惊"）
-- 禁止扁平开场（"最近做了个 xxx"、"大家好今天给大家分享"）
-- 禁止评论区预置（不让你用小号自问自答）
-- 禁止**引用而不落地**：提到电影 / 画作时必须给出具体可插入的镜头方案，不是只甩名字
+</div>
 
 ---
 
-## 装一下
+## 为什么
 
-### 方式 A · 手动安装（最稳）
+做完一个小作品准备发社媒的时候，你需要：
+
+- 一个不像 AI 写的**标题**
+- 一个能抓人但不油腻的**开场**
+- 录视频时**对着讲就行**的配音稿
+- **每个平台**差异化的文案（不是一套贴三遍）
+- 封面写什么、字放哪
+- 录视频时**具体打哪句字**（不是"打一段字"这种抽象指令）
+- 如果灵感有出处，**具体引用哪几秒**、版权怎么标
+
+常规 AI 一张口都是 *"本项目旨在为用户提供……结合了……的优势"*。一眼 AI 味。
+
+**vibe-share 是一套强制走创作分享的 prompt。** 内置写作红线硬性禁止：
+
+- ✗ CTA：*"你会怎么做？""快来试试""欢迎留言"*
+- ✗ 营销句式：*"让 xxx / 一键 xxx / 带你 xxx / 专为 xxx 打造"*
+- ✗ 标题党模板：*【xxx】xxx🔥 / "绝了""震惊"*
+- ✗ 扁平开场：*"最近做了个 xxx""大家好今天给大家分享"*
+- ✗ 评论区小号自问自答
+- ✗ **只引用不落地**：提到电影必须给出"几秒几帧"的具体插入方案
+
+---
+
+## 产出什么
+
+跑完后会在你的项目根目录写出一份 `SHARE.md`，里面有：
+
+**开场钩子** · 3 个候选，有画面 / 具体场景 / 未完成感<br>
+**演讲思路** · 大纲，对着讲就行，不用背稿<br>
+**完整配音稿** · 抖音 / 小红书 / B 站 三版，逐句带**时间码 / 画面 / 念白 / 语气**<br>
+**电影 / 作品引用方案** · 精确到秒的片段 + 版权标注写法<br>
+**平台差异化文案** · 标题 / 正文 / hashtag，三平台各自定制<br>
+**封面设计** · 三平台完整构图，字写什么、叠加层怎么排<br>
+**拍摄前设置** · 浏览器 / 分辨率 / 录屏软件 / 作品内参数的**具体建议值**<br>
+**Demo 录制清单** · 每一镜**具体打什么字、录几秒、录几 take**<br>
+**剪辑节奏** · 分平台秒数级时间轴
+
+---
+
+## 安装
+
+### Claude Code
 
 ```bash
-git clone https://github.com/chenjiangxi/vibe-share.git
+# 全局安装（所有项目都能用）
+git clone https://github.com/chenjiangxi/vibe-share /tmp/vibe-share-src
 mkdir -p ~/.claude/skills
-cp -r vibe-share/skills/vibe-share ~/.claude/skills/
+cp -r /tmp/vibe-share-src/skills/vibe-share ~/.claude/skills/
+rm -rf /tmp/vibe-share-src
 ```
 
-然后重启 Claude Code 即可。
-
-### 方式 B · 作为 Plugin 安装
-
-在 Claude Code 里：
+或用 Plugin 一键装：
 
 ```
 /plugin install https://github.com/chenjiangxi/vibe-share
 ```
 
+零依赖。没有 Python，没有 MCP，没有 requirements.txt。<br>
+**一个 SKILL.md 而已。**
+
 ---
 
 ## 怎么用
 
-1. `cd` 到你刚做完的项目目录
-2. 打开 Claude Code
-3. 直接说「帮我准备发布内容」，或输入 `/vibe-share`
+```
+你   ❯  cd ~/my-cool-project
+你   ❯  /vibe-share
 
-Claude 会并行读你的 `README.md` / `idea.md` / `plan.md` / `BRIEF.md` / `git log` / 主入口源码 / `picture/` 等截图目录，去理解项目在做什么、灵感哪里来、有什么可交互的功能。需要时最多问你 1–2 个关键问题（比如"最想讲灵感故事还是技术故事"），然后在项目根目录输出 `SHARE.md`。
+AI   ❯  看了一下。这是一个叫 {项目名} 的作品——
+        {扒 README 后的一句话描述}
+        灵感好像来自 {从 idea.md 里扒到的}。
+
+        两个问题要你拍板：
+        1. 受众更偏文艺青年还是独立开发者？
+        2. 这次最想讲灵感故事、还是技术做法？
+
+你   ❯  文艺青年 · 灵感故事
+
+AI   ❯  SHARE.md 已生成在项目根目录，包含：
+
+        · 3 个开场钩子候选
+        · 三平台完整配音稿（抖音 25s / 小红书 45s / B 站 4min）
+        · 电影引用方案，精确到秒
+        · 每个镜头打什么字
+        · 三平台封面构图
+
+        改成自己的口吻再发。
+```
 
 ---
 
-## 示范输出
+## 示范
 
-看一眼 [examples/tears-in-rain/SHARE.md](./examples/tears-in-rain/SHARE.md) 就知道产出长什么样。这是用 `vibe-share` 跑在一个真实的小作品上的结果：
+[examples/tears-in-rain/SHARE.md](./examples/tears-in-rain/SHARE.md) 是跑在一个真实作品上的完整产出。
 
-**原项目**：[Tears in Rain](https://github.com/chenjiangxi/tears-in-rain) —— 一扇永远下雨的起雾窗户，打字会被雾气悄悄盖掉，然后浮现一句旧电影的台词。
+> **Tears in Rain** —— 一扇永远下雨的起雾窗户，打字会被雾气悄悄盖掉，然后浮现一句旧电影的台词。
 
-**产出的 `SHARE.md` 里有**：
+它**扒了什么** / 对应**产出了什么**：
 
-- 开场钩子候选 A："深夜想给谁发一句'还记得吗'，打到一半删掉了。后来我把它打在了一扇下雨的窗上，看着雾把它盖掉。"
-- B 站 4 分钟配音稿，分 7 段：Cold Open / 自介 / 灵感故事 / 功能演示 / 创作卡点 / 技术致谢 / 收尾
-- 《花样年华》吴哥窟片段精确到 `01:29:00–01:31:00`，截封洞那 4 秒 + 慢放 85%，保留 Yumeji's Theme 配乐，字幕叠 `In the Mood for Love (2000) · dir. Wong Kar-wai`
-- 《银翼杀手》Roy Batty 独白精确到 `01:49:00–01:50:30`，截白鸽飞起的 3 秒
-- 每个镜头具体打哪句字：镜头 C 打「如果多一张船票」（7 字，呼应台词库），镜头 E 打「还记得吗」，镜头 F 打「雨」配合调滑块
-- 三平台封面构图：小红书 3:4 雾吃 60%、B 站 16:9 左右分栏、抖音 9:16 首帧字必须在上 1/3（底部信息栏会挡）
+| 扒到的 | 变成了 |
+|---|---|
+| `README.md` 的「创作理念」 | 开场钩子："深夜想给谁发一句'还记得吗'，打到一半删掉了。" |
+| `idea1.md` 里提到王家卫 | 《花样年华》`01:29:00` 封洞那 4 秒的引用方案 + 字幕标注写法 |
+| `git log` 里 `per-pixel fog reclaim for organic dissolve` | B 站 4 分钟主片里「创作卡点」那 2 分钟的完整叙述 |
+| `quotes.js` 里的电影台词库 | 镜头 C 建议打「如果多一张船票」（呼应台词库内部） |
+| `picture/` 目录下的备选图 | 拍摄前设置里的背景图推荐 |
 
 ---
 
-## 适用场景
+## 和普通 AI 写的差别
 
-- ✓ 刚做完一个有点意思的个人项目 / vibe coding 作品，准备发社媒
-- ✓ 作品本身是视觉 / 交互 / 概念向，适合短视频展示
-- ✓ 你想要**创作分享**的调子，不是**产品推广**的调子
+|  | 常规 AI 生成 | **vibe-share 生成** |
+|--|------------|--------------------|
+| 标题 | 【震惊】我做了个神器🔥 | 深夜想发又没发出去的话，我做了个地方放 |
+| 开场 | 大家好今天给大家分享一个项目 | 想象一扇永远在下雨的起雾玻璃。 |
+| 灵感 | "灵感来自《花样年华》" | 《花样年华》01:29:00，截封洞那 4 秒 + 慢放 85% |
+| 演示 | "打一段字演示一下" | 镜头 C 打「如果多一张船票」（7 字，呼应台词库） |
+| 文案 | 三平台一套复制 | 三平台各自调性、各自长度 |
+| 封面 | "用醒目画面吸引点击" | 3:4 竖版 · 字写「还记得吗」· 雾吃到 60% · 左上叠副标 |
+| 调性 | 卖货 | 分享 |
 
-不太适合的场景：
+---
 
-- ✗ 正式产品发布（可能需要更偏商业的 landing page 和 copywriting）
-- ✗ 面向海外英文平台（这个 skill 的产出是中文，面向小红书 / B 站 / 抖音）
-- ✗ 纯后端 / 工程类项目，没什么能演示的画面
+## 设计理念
+
+### 为什么是"创作分享"，不是"产品发布"
+
+产品发布是为了转化。它需要 CTA、需要 hashtag 矩阵、需要痛点场景、需要"立刻点击"。
+
+vibe coding 做出来的东西大多不是产品——是作品。作品被分享出去是因为做的人想让人看见，不是因为要 KPI。
+
+强行套用产品发布的话术写作品介绍，只会让作品看起来像 AI 做的。
+
+### 为什么要扒 git log
+
+`git log` 是金矿。commit message 经常暴露创作过程里的卡点和顿悟——比如 `per-pixel fog reclaim for organic dissolve` 就是一个完整的故事。这种细节在 README 里看不到，但它是作品最能打动人的地方。
+
+### 为什么拒绝"一键全自动"
+
+skill 跑起来时，如果项目信息不够清楚，最多问你 1–2 个问题。这是刻意的——让作者 commit 一次判断，产出才不会全是空壳。
+
+不问用户、什么都推断的"一键全自动"最容易变成废话生成器。
+
+### 为什么一个 SKILL.md 够了
+
+vibe-share 的本体只是一份 `SKILL.md`，不需要任何依赖。
+
+因为真正起作用的不是代码——是**清晰的边界**。什么不能写比什么能写更重要。
+
+---
+
+## 路线图
+
+- [x] 核心 SKILL.md — 自扒项目、生成发布包
+- [x] 示范案例 — `examples/tears-in-rain/`
+- [ ] 更多领域的 examples（插画、音乐、写作、硬件）
+- [ ] 海外版本（Reddit / Hacker News / Product Hunt）
+- [ ] 子变体：写作类 / 视觉类 / 音乐类 / 硬件类 各自调优
+- [ ] 内置"再改一遍" workflow（基于反馈迭代同一份 SHARE.md）
+
+---
+
+## FAQ
+
+**Q：会不会写出来还是像 AI？**<br>
+A：写作红线禁止了所有 AI 套话。产出的调子是"作者在随手讲"。但你还是要拿去**改成自己的口吻**——这是草稿，不是成稿。
+
+**Q：只能生成中文吗？**<br>
+A：是。目标是小红书 / B 站 / 抖音。英文平台（Reddit / Hacker News / Product Hunt）需要 fork 一份。欢迎 PR。
+
+**Q：它帮我录视频吗？**<br>
+A：不。它给你完整的拍摄前设置、镜头清单、配音稿和剪辑时间轴。录的事你来。
+
+**Q：要不要原封不动发？**<br>
+A：不要。生成的是脚手架，必须改成自己的口吻。特别是开场钩子，按**你自己真实的那个瞬间**重写。
+
+**Q：它会联网吗？**<br>
+A：不会。只读你本地的项目文件。
 
 ---
 
 ## 贡献
 
-发 issue 或 PR。如果你用它发了自己的作品，欢迎告诉我链接。
-
-如果你想把这个 skill 适配到其他方向（比如英文平台版、技术教程版、商业产品版），欢迎 fork 一份改。
+- 发 issue 聊想法
+- 发 PR 改进 `SKILL.md` 或补 examples
+- 用它发了自己的作品，欢迎告诉我链接
 
 ---
 
-## License
+## Star History
 
-MIT. 见 [LICENSE](./LICENSE).
+[![Star History Chart](https://api.star-history.com/svg?repos=chenjiangxi/vibe-share&type=Date)](https://star-history.com/#chenjiangxi/vibe-share&Date)
+
+---
+
+<div align="center">
+
+MIT License © [chenjiangxi](https://github.com/chenjiangxi)
+
+*"做完了，分享一下。"*
+
+</div>
 
 ---
 
 ## English (short)
 
-**vibe-share** is a [Claude Code](https://claude.com/claude-code) skill that turns your just-finished vibe coding project into a publishing kit for Chinese social platforms (Xiaohongshu 小红书 / Bilibili B站 / Douyin 抖音).
+**vibe-share** is a [Claude Code](https://claude.com/claude-code) skill that turns a just-finished vibe coding project into a publishing kit for Chinese social platforms (Xiaohongshu 小红书 / Bilibili B站 / Douyin 抖音).
 
-Install, then run `/vibe-share` (or just ask Claude to "prepare publishing content") in any project directory. Claude auto-reads the project (README, git log, source, design docs) and writes `SHARE.md` containing:
+Run `/vibe-share` in any project directory. Claude auto-reads README, git log, source code and design docs, then writes `SHARE.md` containing opening hooks, full voiceover scripts with timecodes, film/artwork citation plans with exact timestamps, platform-specific captions, cover designs, a detailed shot list (what to type in each take), and editing timelines.
 
-- Three candidate opening hooks (画面 + 具体场景, not marketing slogans)
-- A narrative speaking outline
-- Complete voiceover scripts with timecodes for Douyin (~25s), Xiaohongshu (~45s), and Bilibili (~4min)
-- Film/artwork citation plans with exact timestamps and fair-use guidance
-- Platform-specific titles, captions and hashtags
-- Cover designs per platform (composition + what text to write on-screen)
-- Pre-recording setup (browser, resolution, screen recorder, in-app parameter values)
-- A detailed shot list (each shot specifies what to type, duration, takes)
-- Editing timelines per platform
-
-Core principle: **creator-sharing**, not product-marketing. No CTAs, no clickbait, no AI-slop phrasing. Output is in Chinese.
+**Creator-sharing, not product-marketing.** Hard constraints against CTAs, clickbait templates, and AI-slop phrasing. Output is in Chinese.
 
 Install:
 
 ```
 /plugin install https://github.com/chenjiangxi/vibe-share
 ```
-
-Or clone and copy `skills/vibe-share/` into `~/.claude/skills/`.
 
 MIT License.
