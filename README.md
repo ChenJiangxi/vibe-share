@@ -155,7 +155,7 @@ vibe-share 做的就是这一步：<br>
 
 ```bash
 # 全局安装（所有项目都能用）
-git clone https://github.com/chenjiangxi/vibe-share.skill /tmp/vibe-share-src
+git clone https://github.com/chenjiangxi/vibe-share /tmp/vibe-share-src
 mkdir -p ~/.claude/skills
 cp -r /tmp/vibe-share-src/skills/vibe-share ~/.claude/skills/
 rm -rf /tmp/vibe-share-src
@@ -164,7 +164,7 @@ rm -rf /tmp/vibe-share-src
 或用 Plugin 一键装：
 
 ```
-/plugin install https://github.com/chenjiangxi/vibe-share.skill
+/plugin install https://github.com/chenjiangxi/vibe-share
 ```
 
 零依赖。没有 Python，没有 MCP，没有 requirements.txt。<br>
@@ -301,7 +301,7 @@ A：不会。只读你本地的项目文件。
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=chenjiangxi/vibe-share.skill&type=Date)](https://star-history.com/#chenjiangxi/vibe-share.skill&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=chenjiangxi/vibe-share&type=Date)](https://star-history.com/#chenjiangxi/vibe-share&Date)
 
 ---
 
@@ -326,7 +326,7 @@ Run `/vibe-share` in any project directory. Claude auto-reads README, git log, s
 Install:
 
 ```
-/plugin install https://github.com/chenjiangxi/vibe-share.skill
+/plugin install https://github.com/chenjiangxi/vibe-share
 ```
 
 MIT License.
