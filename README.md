@@ -1,6 +1,6 @@
 <div align="center">
 
-# vibe-share
+# vibe-share.skill
 
 > *不是营销话术，是创作者分享。*
 
