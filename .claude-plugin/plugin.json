@@ -1,0 +1,21 @@
+{
+  "name": "vibe-share",
+  "description": "把刚做完的 vibe coding 项目转成中文社媒（小红书/B站/抖音）发布包：开场钩子、配音稿、封面、镜头清单、剪辑节奏。",
+  "version": "0.1.0",
+  "author": {
+    "name": "chenjiangxi",
+    "email": "jiangxi_chen@163.com"
+  },
+  "homepage": "https://github.com/chenjiangxi/vibe-share",
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "skill",
+    "vibe-coding",
+    "social-media",
+    "xiaohongshu",
+    "bilibili",
+    "douyin",
+    "chinese"
+  ]
+}
